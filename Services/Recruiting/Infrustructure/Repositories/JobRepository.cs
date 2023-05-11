@@ -1,13 +1,7 @@
 ﻿using ApplicationCore.Contracts.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Infrustructure.Repositories
+namespace Infrustructure.Repositories;
+
+public class JobRepository : IJobRepository
 {
-    public class JobRepository : IJobRepository
-    {
-    }
 }

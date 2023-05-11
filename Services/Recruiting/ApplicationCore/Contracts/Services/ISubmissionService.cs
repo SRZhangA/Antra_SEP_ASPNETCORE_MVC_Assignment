@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace ApplicationCore.Contracts.Services;
 
-namespace ApplicationCore.Contracts.Services
+public class ISubmissionService
 {
-    public class ISubmissionService
-    {
-    }
 }

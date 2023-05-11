@@ -1,13 +1,7 @@
 ﻿using ApplicationCore.Contracts.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Infrustructure.Services
+namespace Infrustructure.Services;
+
+public class SubmissionService : ISubmissionService
 {
-    public class SubmissionService : ISubmissionService
-    {
-    }
 }

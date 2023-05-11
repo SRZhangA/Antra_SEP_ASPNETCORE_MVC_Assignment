@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ApplicationCore.Contracts.Services;
 
-namespace Infrustructure.Services
+namespace Infrustructure.Services;
+
+public class JobService : IJobService
 {
-    internal class JobService
-    {
-    }
 }
