@@ -23,6 +23,11 @@ namespace RecruitingWeb.Controllers
             return View();
         }
 
+        public IActionResult Jobs()
+        {
+            return View();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
