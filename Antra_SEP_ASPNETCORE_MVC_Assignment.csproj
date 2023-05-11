@@ -6,4 +6,11 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Services\Authentication\" />
+    <Folder Include="Services\Interviews\" />
+    <Folder Include="Services\OnBoarding\" />
+    <Folder Include="Services\Recruiting\" />
+  </ItemGroup>
+
 </Project>

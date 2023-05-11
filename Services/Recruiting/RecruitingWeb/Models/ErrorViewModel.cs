@@ -1,4 +1,4 @@
-namespace Antra_SEP_ASPNETCORE_MVC_Assignment.Models
+namespace RecruitingWeb.Models
 {
     public class ErrorViewModel
     {

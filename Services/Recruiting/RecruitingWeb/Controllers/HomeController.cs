@@ -1,8 +1,8 @@
-﻿using Antra_SEP_ASPNETCORE_MVC_Assignment.Models;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using RecruitingWeb.Models;
 using System.Diagnostics;
 
-namespace Antra_SEP_ASPNETCORE_MVC_Assignment.Controllers
+namespace RecruitingWeb.Controllers
 {
     public class HomeController : Controller
     {
