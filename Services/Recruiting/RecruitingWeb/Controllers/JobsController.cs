@@ -1,23 +1,32 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using ApplicationCore.Contracts.Services;
+using Infrustructure.Services;
+using Microsoft.AspNetCore.Mvc;
 
-namespace RecruitingWeb.Controllers
+namespace RecruitingWeb.Controllers;
+
+public class JobsController : Controller
 {
-    public class JobsController : Controller
+    private readonly IJobService jobService;
+
+    public JobsController(IJobService jobService)
     {
-        [HttpGet]
-        public IActionResult Index()
-        {
-            return View();
-        }
-        [HttpGet]
-        public IActionResult Details(int id)
-        {
-            return View();
-        }
-        [HttpPost]
-        public IActionResult Create()
-        {
-            return View();
-        }
+        this.jobService = jobService;
+    }
+    [HttpGet]
+    public IActionResult Index()
+    {
+        var jobs = jobService.GetAllJobs();
+        return View();
+    }
+    [HttpGet]
+    public IActionResult Details(int id)
+    {
+        var job = jobService.GetJobById(id);
+        return View();
+    }
+    [HttpPost]
+    public IActionResult Create()
+    {
+        return View();
     }
 }
