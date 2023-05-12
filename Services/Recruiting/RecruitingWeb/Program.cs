@@ -1,5 +1,7 @@
+using ApplicationCore.Contracts.Repositories;
 using ApplicationCore.Contracts.Services;
 using Infrustructure.Data;
+using Infrustructure.Repositories;
 using Infrustructure.Services;
 using Microsoft.EntityFrameworkCore;
 
@@ -7,6 +9,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddScoped<IJobRepository, JobRepository>();
 
 builder.Services.AddScoped<IJobService, JobService>();
 

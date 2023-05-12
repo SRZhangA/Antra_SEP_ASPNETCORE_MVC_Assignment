@@ -1,25 +1,48 @@
-﻿using ApplicationCore.Contracts.Services;
+﻿using ApplicationCore.Contracts.Repositories;
+using ApplicationCore.Contracts.Services;
 using ApplicationCore.Models;
 
 namespace Infrustructure.Services;
 
 public class JobService : IJobService
 {
-    public List<JobResponseModel> GetAllJobs()
-    {
-        var jobs = new List<JobResponseModel>()
-        {
-            new JobResponseModel(){Id=1, Title=".net", Description="need"},
-            new JobResponseModel(){Id=2, Title="java", Description="need"},
-            new JobResponseModel(){Id=3, Title="python", Description="need"},
-            new JobResponseModel(){Id=4, Title="ruby", Description="need"}
-        };
+    private readonly IJobRepository jobRepository;
 
-        return jobs;
+    public JobService(IJobRepository jobRepository)
+    {
+        this.jobRepository = jobRepository;
+    }
+    public async Task<List<JobResponseModel>> GetAllJobs()
+    {
+        var jobs = await jobRepository.GetAllJobs();
+
+        List<JobResponseModel> response = new();
+
+        foreach (var job in jobs)
+        {
+            response.Add(new JobResponseModel()
+            {
+                Id = job.Id,
+                Description = job.Description,
+                Title = job.Title,
+                StartDate = job.StartDate,
+                NumberOfPositions = job.NumberOfPosition
+            });
+        }
+
+        return response;
     }
 
-    public JobResponseModel GetJobById(int id)
+    public async Task<JobResponseModel> GetJobById(int id)
     {
-        return new JobResponseModel() { Id = 1, Title = ".net", Description = "need" };
+        var job = await jobRepository.GetJobById(id);
+        return new JobResponseModel()
+        {
+            Id = job.Id,
+            Description = job.Description,
+            Title = job.Title,
+            StartDate = job.StartDate,
+            NumberOfPositions = job.NumberOfPosition
+        };
     }
 }
