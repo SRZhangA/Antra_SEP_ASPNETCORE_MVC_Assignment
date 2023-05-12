@@ -1,4 +1,5 @@
 ﻿using ApplicationCore.Contracts.Services;
+using ApplicationCore.Models;
 using Infrustructure.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -23,11 +24,21 @@ public class JobsController : Controller
     public async Task<IActionResult> Details(int id)
     {
         var job = await jobService.GetJobById(id);
-        return View();
+        return View(job);
     }
     [HttpGet]
     public IActionResult Create()
     {
         return View();
+    }
+    [HttpPost]
+    public async Task<IActionResult> Create(JobRequestModel model)
+    {
+        if (!ModelState.IsValid)
+        {
+            return View();
+        }
+        await jobService.AddJob(model);
+        return RedirectToAction("Index");
     }
 }

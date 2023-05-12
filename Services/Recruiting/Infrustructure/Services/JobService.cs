@@ -1,5 +1,6 @@
 ﻿using ApplicationCore.Contracts.Repositories;
 using ApplicationCore.Contracts.Services;
+using ApplicationCore.Entities;
 using ApplicationCore.Models;
 
 namespace Infrustructure.Services;
@@ -12,6 +13,23 @@ public class JobService : IJobService
     {
         this.jobRepository = jobRepository;
     }
+
+    public async Task<int> AddJob(JobRequestModel model)
+    {
+        var jobEntity = new Job()
+        {
+            Description = model.Description,
+            Title = model.Title,
+            StartDate = model.StartDate,
+            NumberOfPosition = model.NumbersOfPositions,
+            CreatedOn = DateTime.UtcNow,
+            JobStatusLookUpId = 1
+        };
+
+        var job = await jobRepository.AddAsync(jobEntity);
+        return job.Id;
+    }
+
     public async Task<List<JobResponseModel>> GetAllJobs()
     {
         var jobs = await jobRepository.GetAllJobs();

@@ -5,13 +5,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Infrustructure.Repositories;
 
-public class JobRepository : IJobRepository
+public class JobRepository : BaseRepository<Job>, IJobRepository
 {
-    private readonly RecruitingDbContext dbContext;
-
-    public JobRepository(RecruitingDbContext dbContext)
+    public JobRepository(RecruitingDbContext dbContext) :base(dbContext)
     {
-        this.dbContext = dbContext;
+
     }
     public async Task<List<Job>> GetAllJobs()
     {
