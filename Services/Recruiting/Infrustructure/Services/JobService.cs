@@ -23,7 +23,8 @@ public class JobService : IJobService
             StartDate = model.StartDate,
             NumberOfPosition = model.NumbersOfPositions,
             CreatedOn = DateTime.UtcNow,
-            JobStatusLookUpId = 1
+            JobStatusLookUpId = 1,
+            JobCode  = Guid.NewGuid(),
         };
 
         var job = await jobRepository.AddAsync(jobEntity);
